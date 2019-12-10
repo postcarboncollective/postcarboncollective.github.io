@@ -10,7 +10,7 @@ class Molecule {
     this.location.y = y;
     let size = size_;
     push();
-    translate(this.location.x,this.location.y);
+    translate(windowWidth/2,windowHeight/2);
     rotate(radians(random(360)));  
     //CYTOSINE
     if(this.type == 0){
