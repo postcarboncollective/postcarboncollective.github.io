@@ -4,18 +4,18 @@ class Molecule {
     this.location = createVector(windowWidth/2,windowHeight/2);
   }
   
-  draw(x,y,size_){
+  draw(x,y,size_,bgColor){
     textAlign(CENTER,CENTER);
     this.location.x = x;
     this.location.y = y;
     let size = size_;
+    push();
+    translate(this.location.x,this.location.y);
+    rotate(radians(random(360)));  
     //CYTOSINE
     if(this.type == 0){
-      push();
-      // translate (width/2, height/2);
-      rotate(0.3);
-      stroke(255);
-      fill(255);
+      stroke(255-bgColor);
+      fill(255-bgColor);
       line(this.location.x-size/8,this.location.y,this.location.x-size/8,this.location.y-size);
       line(this.location.x+size/8,this.location.y,this.location.x+size/8,this.location.y-size);
       line(this.location.x,this.location.y-size,this.location.x+size,this.location.y-size*2);
@@ -28,8 +28,8 @@ class Molecule {
       line(this.location.x+size*2,this.location.y,this.location.x+size,this.location.y+size);
       line(this.location.x+size,this.location.y+size,this.location.x,this.location.y);
       
-      stroke(255);
-      fill(0);
+      stroke(255-bgColor);
+      fill(bgColor);
       ellipse(this.location.x,this.location.y,size/2);
       ellipse(this.location.x,this.location.y-size,size/2);
       ellipse(this.location.x+size,this.location.y-size*2,size/2);
@@ -40,8 +40,8 @@ class Molecule {
       ellipse(this.location.x+size,this.location.y+size,size/2);
       
       textSize(size/4);
-      stroke(255);
-      fill(255);
+      stroke(255-bgColor);
+      fill(255-bgColor);
       text("C",this.location.x,this.location.y);
       text("C",this.location.x,this.location.y-size);
       text("C",this.location.x+size,this.location.y-size*2);
@@ -52,7 +52,7 @@ class Molecule {
       text("N",this.location.x+size,this.location.y+size);
       textSize(size/8);
       text("2",this.location.x+size*1.25,this.location.y-size*2.9);
-      pop();
     }
+    pop();
   }
 }
