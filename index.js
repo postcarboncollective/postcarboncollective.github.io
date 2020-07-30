@@ -1,5 +1,6 @@
-let introPlayed = false; fadeIn=false;
-let bgIntroAlpha = 1;
+let fadeIn=false;
+let bgIntroAlphaFadeIn = 0;
+let bgIntroAlphaFadeOut = 255;
 let count0 = 0;
 let logo;
 
@@ -8,10 +9,10 @@ function preload() {
 }
 function setup(){
   resetBG();
-  introPlayed = false; bgIntroAlpha=0;
+  bgIntroAlpha=0;
 
   //SkipFadeIn
-  fadeIn = true;bgIntroAlpha=255;
+  // fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
   resetBG();
@@ -69,24 +70,22 @@ function drawMenu(){
 }
 
 function introAnimation(){
-  if(introPlayed==false){
-    count0++;
-    image(logo,0,0,width,height);
-    tint(255, bgIntroAlpha);
-    if(count0>0){
-      if(fadeIn==false){
-        bgIntroAlpha+=1;
+  count0++;
+  image(logo,0,0,width,height);
+  if(count0>0){
+    if(fadeIn==false){
+      tint(255, bgIntroAlphaFadeIn);
+      bgIntroAlphaFadeIn+=2;
+    }
+    if(fadeIn==true){
+      if(bgIntroAlphaFadeOut>15){
+        tint(255, bgIntroAlphaFadeOut);
+        bgIntroAlphaFadeOut-=2;
       }
-      if(fadeIn==true){
-        bgIntroAlpha-=2;
-      }
-      count0=0;
     }
-    if(bgIntroAlpha>255){
-      fadeIn=true;
-    }
-    if(bgIntroAlpha<=0){
-      introPlayed=true;
-    }
+    count0=0;
+  }
+  if(bgIntroAlphaFadeIn>255){
+    fadeIn=true;
   }
 }
