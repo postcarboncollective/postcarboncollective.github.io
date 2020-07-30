@@ -62,31 +62,6 @@ function drawMenu(){
     ellipse(width/1.18,height/2.75,width/54,height/54);
     // ellipse(width/1.215,height/3.9,width/54,height/54);
     ellipse(width/1.33,height/1.315,width/54,height/54);
-
-    // rect((width/2)-((width/6)/2),(height/2)-((height/6)/2),width/6,height/6);
-    // //Lines
-    // line(width/2,height/2.2,width/3,height/2.2);
-    // line(width/3,height/2.2,width/3.5,height/2.5);
-    // line(width/2,height/2,width/3.5,height/2);
-    // line(width/2,height/1.85,width/3,height/1.85);
-    // line(width/3,height/1.85,width/3.5,height/1.65);
-    // //right
-    // line(width/2,height/2.2,width/1.5,height/2.2);
-    // line(width/1.5,height/2.2,width/1.4,height/2.5);
-    // line(width/2,height/2,width/1.4,height/2);
-    // line(width/2,height/1.85,width/1.5,height/1.85);
-    // line(width/1.5,height/1.85,width/1.4,height/1.65);
-    //
-    // //Buttons
-    // fill(0);
-    // strokeWeight(4);
-    // ellipse(width/3.5,height/2.5,width/64);
-    // ellipse(width/3.5,height/2,width/64);
-    // ellipse(width/3.5,height/1.65,width/64);
-    // //right
-    // ellipse(width/1.4,height/2.5,width/64)
-    // ellipse(width/1.4,height/2,width/64);
-    // ellipse(width/1.4,height/1.65,width/64);
   }
 }
 
@@ -94,11 +69,10 @@ function introAnimation(){
   if(introPlayed==false){
     count0++;
     image(logo,0,0,width,height);
-    // tint(255,50);
     tint(255, bgIntroAlpha);
     if(count0>0){
       if(fadeIn==false){
-        bgIntroAlpha+=1;
+        bgIntroAlpha+=2;
       }
       if(fadeIn==true){
         bgIntroAlpha-=2;
