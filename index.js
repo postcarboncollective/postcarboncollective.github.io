@@ -9,6 +9,9 @@ function preload() {
 function setup(){
   resetBG();
   introPlayed = false; bgIntroAlpha=0;
+
+  //SkipFadeIn
+  fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
   resetBG();
@@ -72,7 +75,7 @@ function introAnimation(){
     tint(255, bgIntroAlpha);
     if(count0>0){
       if(fadeIn==false){
-        bgIntroAlpha+=2;
+        bgIntroAlpha+=1;
       }
       if(fadeIn==true){
         bgIntroAlpha-=2;
