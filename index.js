@@ -66,6 +66,18 @@ function drawMenu(){
     ellipse(width/1.18,height/2.75,width/54,height/54);
     // ellipse(width/1.215,height/3.9,width/54,height/54);
     ellipse(width/1.33,height/1.315,width/54,height/54);
+
+    fill(255);
+    strokeWeight(0);
+    textAlign(RIGHT,CENTER);
+    textSize(((width+height)/2)/48);
+    text('About', width/3.25, height/3.18);
+    text('Artists', width/2.5, height/2.48);
+    text('Events', width/1.95, height/2.05);
+    textAlign(LEFT,CENTER);
+    text('Projects', width/1.2, height/1.7);
+    text('Label', width/1.155, height/2.75);
+    text('Software', width/1.305, height/1.315);
   }
 }
 
