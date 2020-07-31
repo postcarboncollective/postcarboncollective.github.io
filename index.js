@@ -30,7 +30,7 @@ function setup(){
   bgIntroAlpha=0;
 
   //SkipFadeIn
-  fadeIn = true;bgIntroAlpha=255;
+  // fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
   resetBG();
@@ -68,6 +68,29 @@ function resetBG(){
   nPos[2][1][1]= height/2.72;
   nPos[2][0][2]= width/2.395;
   nPos[2][1][2]= height/2.48;
+
+  nPos[3][0][0]= width/1.555;
+  nPos[3][1][0]= height/2.115;
+  nPos[3][0][1]= width/1.42;
+  nPos[3][1][1]= height/2.115;
+  nPos[3][0][2]= width/1.225;
+  nPos[3][1][2]= height/1.7;
+
+  nPos[4][0][0]= width/1.46;
+  nPos[4][1][0]= height/2.275;
+  nPos[4][0][1]= width/1.29;
+  nPos[4][1][1]= height/2.275;
+  nPos[4][0][2]= width/1.18;
+  nPos[4][1][2]= height/2.75;
+
+  nPos[5][0][0]= width/1.708;
+  nPos[5][1][0]= height/2;
+  nPos[5][0][1]= width/1.708;
+  nPos[5][1][1]= height/1.45;
+  nPos[5][0][2]= width/1.53;
+  nPos[5][1][2]= height/1.315;
+  nPos[5][0][3]= width/1.33;
+  nPos[5][1][3]= height/1.315;
 }
 
 function drawMenu(){
@@ -86,27 +109,25 @@ function drawMenu(){
     ellipse(nPos[2][0][0],nPos[2][1][0],cWidth,cHeight);
     line(nPos[2][0][0],nPos[2][1][0],nPos[2][0][1],nPos[2][1][1]);
     line(nPos[2][0][1],nPos[2][1][1],nPos[2][0][2],nPos[2][1][2]);
+    ellipse(nPos[3][0][0],nPos[3][1][0],cWidth,cHeight);
+    line(nPos[3][0][0],nPos[3][1][0],nPos[3][0][1],nPos[3][1][1]);
+    line(nPos[3][0][1],nPos[3][1][1],nPos[3][0][2],nPos[3][1][2]);
+    ellipse(nPos[4][0][0],nPos[4][1][0],cWidth,cHeight);
+    line(nPos[4][0][0],nPos[4][1][0],nPos[4][0][1],nPos[4][1][1]);
+    line(nPos[4][0][1],nPos[4][1][1],nPos[4][0][2],nPos[4][1][2]);
 
-    ellipse(width/1.555,height/2.115,cWidth,cHeight);
-    line(width/1.555,height/2.115,width/1.42,height/2.115);
-    line(width/1.42,height/2.115,width/1.225,height/1.7);
-
-    ellipse(width/1.46,height/2.275,cWidth,cHeight);
-    ellipse(width/1.708,height/2,cWidth,cHeight);
-
-    line(width/1.46,height/2.275,width/1.29,height/2.275);
-    line(width/1.29,height/2.275,width/1.18,height/2.75);
-    line(width/1.708,height/2,width/1.708,height/1.45);
-    line(width/1.708,height/1.45,width/1.53,height/1.315);
-    line(width/1.53,height/1.315,width/1.33,height/1.315);
+    ellipse(nPos[5][0][0],nPos[5][1][0],cWidth,cHeight);
+    line(nPos[5][0][0],nPos[5][1][0],nPos[5][0][1],nPos[5][1][1]);
+    line(nPos[5][0][1],nPos[5][1][1],nPos[5][0][2],nPos[5][1][2]);
+    line(nPos[5][0][2],nPos[5][1][2],nPos[5][0][3],nPos[5][1][3]);
 
     fill(0);
     ellipse(nPos[0][0][2],nPos[0][1][2],cWidth,cHeight);
     ellipse(nPos[1][0][2],nPos[1][1][2],cWidth,cHeight);
     ellipse(nPos[2][0][2],nPos[2][1][2],cWidth,cHeight);
-    ellipse(width/1.225,height/1.7,cWidth,cHeight);
-    ellipse(width/1.18,height/2.75,cWidth,cHeight);
-    ellipse(width/1.33,height/1.315,cWidth,cHeight);
+    ellipse(nPos[3][0][2],nPos[3][1][2],cWidth,cHeight);
+    ellipse(nPos[4][0][2],nPos[4][1][2],cWidth,cHeight);
+    ellipse(nPos[5][0][3],nPos[5][1][3],cWidth,cHeight);
 
     fill(255);
     strokeWeight(0);
@@ -116,12 +137,12 @@ function drawMenu(){
     text('About', nPos[1][0][2]-(width/sizeDiv), nPos[1][1][2]);
     text('Artists', nPos[2][0][2]-(width/sizeDiv), nPos[2][1][2]);
     textAlign(LEFT,CENTER);
-    text('Projects', width/1.2, height/1.7);
-    text('Label', width/1.155, height/2.75);
-    text('Software', width/1.305, height/1.315);
+    text('Projects',nPos[3][0][2]+(width/sizeDiv),nPos[3][1][2]);
+    text('Label', nPos[4][0][2]+(width/sizeDiv), nPos[4][1][2]);
+    text('Software', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
 
     hoover=false;
-    for(n=0;n<3;n++){
+    for(n=0;n<6;n++){
       xI = nPos[n][0][nPos[n][0].length-(seg+1)];
       yI = nPos[n][1][nPos[n][1].length-(seg+1)];
       xF = nPos[n][0][nPos[n][0].length-(seg+2)];
@@ -147,7 +168,7 @@ function drawMenu(){
             ePosY = 0;
             fCount = 0;
             seg+=1;
-            if(nPos[0][0].length-(seg+2)<0){
+            if(nPos[n][0].length-(seg+2)<0){
               seg=0;
             }
           }
