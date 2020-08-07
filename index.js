@@ -21,6 +21,7 @@ for(i=0;i<100;i++){
   }
 }
 
+var timeSize = 1;
 var timeC = 0;
 var timeP = 0;
 var canvas;
@@ -32,7 +33,7 @@ function setup(){
   resetBG();
   bgIntroAlpha=0;
   // //SkipFadeIn
-  // fadeIn = true;bgIntroAlpha=255;
+  fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
   resetBG();
@@ -45,15 +46,6 @@ function resetBG(){
     canvas = createCanvas(windowHeight*0.9,windowHeight*0.9)
   }
   else{canvas = createCanvas(windowWidth,windowWidth)}
-  // canvas = createCanvas(windowWidth, windowHeight*0.9);
-  // // var canvas = createCanvas(windowHeight*0.9, windowHeight*0.9);
-  // canvas.parent('sketch-div');
-  // background(0);
-
-  // canvas = createCanvas(windowWidth, windowHeight*0.9);
-  var xc = (windowWidth - width)/2;
-  var yc = (windowHeight - height)/2;
-  // canvas.position(xc,yc);
   canvas.parent('sketch-div');
   background(0, 0, 0);
 
@@ -107,6 +99,11 @@ function resetBG(){
 
 function drawMenu(){
   if(fadeIn==true){
+    timeP = millis()-timeC;
+    if(timeP>timeSize){
+      timeC = millis();
+    }
+
     fill(255);
     stroke(255);
     strokeWeight(((width+height)/2)/200);
@@ -154,6 +151,7 @@ function drawMenu(){
     text('Software', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
 
     hoover=false;
+
     for(n=0;n<6;n++){
       xI = nPos[n][0][nPos[n][0].length-(seg+1)];
       yI = nPos[n][1][nPos[n][1].length-(seg+1)];
@@ -163,6 +161,7 @@ function drawMenu(){
       xGran = xDistance/eSpeedDiv;
       yDistance = yF-yI;
       yGran = yDistance/eSpeedDiv;
+
       if(mouseX > (nPos[n][0][nPos[n][0].length-1])-(cWidth) && mouseX < ((nPos[n][0][nPos[n][0].length-1])+(cWidth))){
         if(mouseY > (nPos[n][1][nPos[n][1].length-1])-(cHeight) && mouseY < (nPos[n][1][nPos[n][1].length-1])+(cHeight)){
           if(mouseIsPressed){
@@ -175,11 +174,15 @@ function drawMenu(){
           ellipse(nPos[n][0][nPos[n][0].length-1],nPos[n][1][nPos[n][1].length-1],cWidth,cHeight);
           fill(255,random(100,200));
           ellipse(xI+ePosX,yI+ePosY,cWidth,cHeight);
+
+
           if(fCount < eSpeedDiv){
+          // if(timeP > timeSize){
             ePosX += xGran;
             ePosY += yGran;
             fCount++;
           }
+
           else{
             ePosX = 0;
             ePosY = 0;
