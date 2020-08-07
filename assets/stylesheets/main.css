@@ -146,7 +146,9 @@ li{
 }
 
 .SocialLogo{
-	width: 4%;
+	width: 2%;
+	height: auto;
+	/* height:1%; */
 	/* padding-right:1%; */
 }
 
