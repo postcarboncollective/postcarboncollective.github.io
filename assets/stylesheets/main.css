@@ -113,13 +113,10 @@ li{
 }
 
 #sketch-div{
-	/* width:100%; */
-	/* height:100%; */
-	/* margin: 0 auto; */
-	/* left: auto; */
-	/* position: absolute; */
-	/* vertical-align:middle; */
-	/* height:100%; */
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #mainLogo{
@@ -140,6 +137,19 @@ li{
 	left:50%;
 	top:50%;
 	position:absolute;
+}
+
+.FooterLinks{
+	position: absolute;
+	left: 5%;
+	bottom: 2%;
+}
+
+.SocialLogo{
+	display:inline;
+	width: 5%;
+	height:5%;
+	/* padding-right:1%; */
 }
 
 .center-cropped {

@@ -21,15 +21,17 @@ for(i=0;i<100;i++){
   }
 }
 
+var timeC = 0;
+var timeP = 0;
+var canvas;
+
 function preload() {
   logo = loadImage('assets/PCCLogoBlack.jpg');
 }
 function setup(){
-
   resetBG();
   bgIntroAlpha=0;
-
-  //SkipFadeIn
+  // //SkipFadeIn
   // fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
@@ -39,11 +41,21 @@ function draw(){
 }
 
 function resetBG(){
-  var canvas = createCanvas(windowWidth, windowHeight*0.9);
-  // var canvas = createCanvas(windowHeight*0.9, windowHeight*0.9);
+  if(windowWidth>=(windowHeight*0.9)){
+    canvas = createCanvas(windowHeight*0.9,windowHeight*0.9)
+  }
+  else{canvas = createCanvas(windowWidth,windowWidth)}
+  // canvas = createCanvas(windowWidth, windowHeight*0.9);
+  // // var canvas = createCanvas(windowHeight*0.9, windowHeight*0.9);
+  // canvas.parent('sketch-div');
+  // background(0);
+
+  // canvas = createCanvas(windowWidth, windowHeight*0.9);
+  var xc = (windowWidth - width)/2;
+  var yc = (windowHeight - height)/2;
+  // canvas.position(xc,yc);
   canvas.parent('sketch-div');
-  // canvas.position(0, 0);
-  background(0);
+  background(0, 0, 0);
 
   cWidth = width/sizeDiv;
   cHeight = height/sizeDiv;
@@ -153,6 +165,11 @@ function drawMenu(){
       yGran = yDistance/eSpeedDiv;
       if(mouseX > (nPos[n][0][nPos[n][0].length-1])-(cWidth) && mouseX < ((nPos[n][0][nPos[n][0].length-1])+(cWidth))){
         if(mouseY > (nPos[n][1][nPos[n][1].length-1])-(cHeight) && mouseY < (nPos[n][1][nPos[n][1].length-1])+(cHeight)){
+          if(mouseIsPressed){
+            if(n==1){
+              window.location='about.html';
+            }
+          }
           hoover=true;
           fill(255);
           ellipse(nPos[n][0][nPos[n][0].length-1],nPos[n][1][nPos[n][1].length-1],cWidth,cHeight);
