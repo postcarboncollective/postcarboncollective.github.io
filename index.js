@@ -210,7 +210,7 @@ function introAnimation(){
   if(count0>0){
     if(fadeIn==false){
       tint(255, bgIntroAlphaFadeIn);
-      bgIntroAlphaFadeIn+=4;
+      bgIntroAlphaFadeIn+=2;
     }
     if(fadeIn==true){
       if(bgIntroAlphaFadeOut>25){
