@@ -33,7 +33,7 @@ function setup(){
   resetBG();
   bgIntroAlpha=0;
   // //SkipFadeIn
-  fadeIn = true;bgIntroAlpha=255;
+  // fadeIn = true;bgIntroAlpha=255;
 }
 function draw(){
   resetBG();
@@ -210,12 +210,12 @@ function introAnimation(){
   if(count0>0){
     if(fadeIn==false){
       tint(255, bgIntroAlphaFadeIn);
-      bgIntroAlphaFadeIn+=2;
+      bgIntroAlphaFadeIn+=4;
     }
     if(fadeIn==true){
-      if(bgIntroAlphaFadeOut>20){
+      if(bgIntroAlphaFadeOut>25){
         tint(255, bgIntroAlphaFadeOut);
-        bgIntroAlphaFadeOut-=2;
+        bgIntroAlphaFadeOut-=4;
       }
     }
     count0=0;
