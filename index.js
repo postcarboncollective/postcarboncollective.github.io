@@ -148,8 +148,8 @@ function drawMenu(){
     textAlign(LEFT,CENTER);
     text('Projects',nPos[3][0][2]+(width/sizeDiv),nPos[3][1][2]);
     text('Label', nPos[4][0][2]+(width/sizeDiv), nPos[4][1][2]);
-    text('Software', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
-
+	text('Software', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
+	
     hoover=false;
 
     for(n=0;n<6;n++){
