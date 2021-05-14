@@ -143,12 +143,12 @@ function drawMenu(){
     textAlign(RIGHT,CENTER);
     textSize(((width+height)/2)/sizeDiv);
     text('Events', nPos[0][0][2]-(width/sizeDiv), nPos[0][1][2]);
-    text('About', nPos[1][0][2]-(width/sizeDiv), nPos[1][1][2]);
+    text('Gallery', nPos[1][0][2]-(width/sizeDiv), nPos[1][1][2]);
     text('Artists', nPos[2][0][2]-(width/sizeDiv), nPos[2][1][2]);
     textAlign(LEFT,CENTER);
     text('Projects',nPos[3][0][2]+(width/sizeDiv),nPos[3][1][2]);
     text('Label', nPos[4][0][2]+(width/sizeDiv), nPos[4][1][2]);
-	text('Software', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
+	  text('About', nPos[5][0][3]+(width/sizeDiv),nPos[5][1][3]);
 	
     hoover=false;
 
@@ -165,9 +165,7 @@ function drawMenu(){
       if(mouseX > (nPos[n][0][nPos[n][0].length-1])-(cWidth) && mouseX < ((nPos[n][0][nPos[n][0].length-1])+(cWidth))){
         if(mouseY > (nPos[n][1][nPos[n][1].length-1])-(cHeight) && mouseY < (nPos[n][1][nPos[n][1].length-1])+(cHeight)){
           if(mouseIsPressed){
-            if(n==1){
-              window.location='about.html';
-            }
+            if(n==1){ window.location='VirtualGallery.html'; }
           }
           hoover=true;
           fill(255);
