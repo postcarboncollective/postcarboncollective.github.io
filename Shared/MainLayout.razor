@@ -1,0 +1,74 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<MudThemeProvider Theme="Postcarbon" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    @if (!IsIndex)
+    {
+        <MudDrawer Open="IsOpen" Variant="DrawerVariant.Mini" Width="125px">
+            <NavMenu MainLayout=@this />
+        </MudDrawer>
+    }
+    <MudMainContent Class="pt-0 mt-0">
+        <MudContainer MaxWidth="MaxWidth.False" Style="margin: 0px; padding: 0px;">
+            <CascadingValue Value="this">
+                @Body
+            </CascadingValue>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    public bool IsOpen { get; set; } = false;
+    public bool IsIndex { get; set; } = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var dotNet = DotNetObjectReference.Create(this);
+        await JSRuntime.InvokeVoidAsync("GLOBAL.SetDotnetReference", dotNet);
+    }
+
+    public void ToggleDrawer()
+    {
+        IsOpen = !IsOpen;
+        StateHasChanged();
+    }
+
+    public void SetIsIndex(bool val)
+    {
+        IsIndex = val;
+        StateHasChanged();
+    }
+
+    [JSInvokableAttribute("NavigateTo")]
+    public async Task NavigateTo(string page)
+    {
+        await JSRuntime.InvokeVoidAsync("DisposeJs");
+        NavigationManager.NavigateTo(page);
+    }
+
+    MudTheme Postcarbon = new MudTheme()
+        {
+            Palette = new Palette()
+            {
+                Background = "000f",
+                Black = "000f",
+                BackgroundGrey = "111f",
+                Surface = "111f",
+                Primary = "0f0f",
+                Secondary = "00ff",
+                TextPrimary = "ffff",
+                TextSecondary = "0f0f",
+                DrawerBackground = "111f",
+                DrawerText = "ffff"
+            },
+            LayoutProperties = new LayoutProperties()
+            {
+                AppbarHeight = "0px",
+            }
+        };
+}

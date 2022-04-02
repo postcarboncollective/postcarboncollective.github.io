@@ -1,0 +1,29 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <center>
+                    <MudText Typo="Typo.h6">@Sentient.Name</MudText>
+                </center>
+                <center>
+                    <img src="@Sentient.Picture" style="width: 10vw; height: 10vw;">
+                </center>
+                <center>
+                    <MudText>@Sentient.Bio</MudText>
+                </center>
+                <br/>
+                @foreach (string link in Sentient.Links)
+                {
+                    <center>
+                        <MudLink Href="@link" Typo="Typo.caption">@link</MudLink>
+                    </center>
+                }
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] public MudDialogInstance Dialog { get; set; }
+    [Parameter] public Sentient Sentient { get; set; }
+}

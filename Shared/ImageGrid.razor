@@ -1,0 +1,25 @@
+﻿@inject IDialogService DialogService;
+
+<div class="container">
+    @foreach (int i in Enumerable.Range(0, 40))
+    {
+        <div class="responsive">
+            <div class="gallery">
+                <img src="@($"{Folder}/{i}.{Extension}")" onclick="@(()=>ShowImage($"{Folder}/{i}.{Extension}"))">
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public int Count { get; set; } = 0;
+    [Parameter] public string Folder { get; set; } = "";
+    [Parameter] public string Extension { get; set; } = "jpeg";
+
+    public void ShowImage(string Url)
+    {
+        var options = new DialogOptions { NoHeader = true };
+        var parameters = new DialogParameters { ["Url"] = Url };
+        DialogService.Show<DialogImage>("Image", parameters, options);
+    }
+}

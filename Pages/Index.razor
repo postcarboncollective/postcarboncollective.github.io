@@ -1,0 +1,27 @@
+﻿@page "/"
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<center>
+    <MudItem xs="12" Style="height:100vh" id="sketch-div" />
+</center>
+
+@code
+{
+    [CascadingParameter] MainLayout MainLayout { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MainLayout.SetIsIndex(true);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await setP5();
+    }
+
+    private async Task setP5()
+    {
+        await JSRuntime.InvokeAsync<object>("setp5");
+    }
+}

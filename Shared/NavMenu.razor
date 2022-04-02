@@ -1,0 +1,19 @@
+﻿<MudNavMenu>
+    <MudNavLink Icon="@Icons.Filled.Dehaze" OnClick="@ToggleLayout"></MudNavLink>
+    <MudNavLink Href="/" Icon="@Icons.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+    <MudNavLink Href="/Info" Icon="@Icons.Filled.Info" Match="NavLinkMatch.All">Info</MudNavLink>
+    <MudNavLink Href="/Sentients" Icon="@Icons.Filled.EmojiPeople" Match="NavLinkMatch.All">Sentients</MudNavLink>
+    <MudNavLink Href="/Events" Icon="@Icons.Filled.Celebration" Match="NavLinkMatch.All">Events</MudNavLink>
+    @*<MudNavLink Href="/Label" Icon="@Icons.Filled.Speaker" Match="NavLinkMatch.All">Label</MudNavLink>*@
+    @*<MudNavLink Href="/Gallery" Icon="@Icons.Filled.Brush" Match="NavLinkMatch.All">Gallery</MudNavLink>*@
+</MudNavMenu>
+
+@code
+{
+    [Parameter] public MainLayout MainLayout { get; set; }
+
+    public void ToggleLayout()
+    {
+        MainLayout.ToggleDrawer();
+    }
+}

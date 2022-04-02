@@ -1,0 +1,87 @@
+﻿@page "/Sentients"
+@inject IDialogService DialogService
+
+<MudGrid Spacing="0">
+    @foreach (Sentient sent in SentientList)
+    {
+        <MudItem lg="3" xs="6">
+            <MudCard Style="margin: 1vh">
+                <MudCardContent>
+                    <center>
+                        <MudText Typo="Typo.h5">@sent.Name</MudText>
+                        <img src="@sent.Picture" @onclick="@(()=>OpenArtistDialog(sent))" style="width: 20vw; height: 40vh" />
+                    </center>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    }
+</MudGrid>
+
+@code {
+    [CascadingParameter] MainLayout MainLayout { get; set; }
+    List<Sentient> SentientList { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetIsIndex(false);
+        Sentient Ndr0n = new();
+        Ndr0n.Name = "Ndr0n";
+        Ndr0n.Picture = "assets/img/sentients/AFONSO.jpg";
+        Ndr0n.Bio = "Ndr0n is an audio-visual project that exists as an extension and digital expression of Afonso Proença. The aesthetic emerges from the mechanical routines and synthetic emotion present in modern society. By continuous experience and developments, Ndr0n is a project that is defined not by one single medium, but by one single principle: Deus Ex Machina.";
+        Ndr0n.Links = new();
+        Ndr0n.Links.Add("https://ndr0n.github.io");
+        SentientList.Add(Ndr0n);
+
+        Sentient PostBot = new();
+        PostBot.Name = "PostBot";
+        PostBot.Picture = "assets/img/sentients/RICARDO.jpg";
+        PostBot.Bio = "Post_B0t is a digital identity, a software installed in a larger artistic entity. With the inputs of futurism, trans-humanism, fantasy, biology and psychology, this ever-changeable program outputs visions of an apocalyptic future where nature and machine have found an ethereal balance.";
+        SentientList.Add(PostBot);
+
+        Sentient SputNik = new();
+        SputNik.Name = "SputNik";
+        SputNik.Picture = "assets/img/sentients/SARA.jpg";
+        SputNik.Bio = "Sputnik is an artist with an immense need for creation. Using visual and physical mediums like illustration, painting, installations and more recently, 3D art, VJ and videomapping in an exploration of the dogmas of transhumanism and their moral and ethical consequences.";
+        SentientList.Add(SputNik);
+
+        Sentient Sasha = new();
+        Sasha.Name = "Sasha Theft";
+        Sasha.Picture = "assets/img/sentients/SASHA.jpg";
+        Sasha.Bio = "Sasha Theft is the amphibian of the worlds of science and art. Always striving for self-enhancement, they found fulfillment among decks, MIDI keyboards and micropipettes. Sasha has a widespread taste in music evident in all their work. Sasha moves through the shadow of sound, connecting the dots of conscience they find along the way.";
+        Sasha.Links = new();
+        Sasha.Links.Add("https://soundcloud.com/sashatheft");
+        SentientList.Add(Sasha);
+
+        Sentient Joana = new();
+        Joana.Name = "Joana Monteiro";
+        Joana.Picture = "assets/img/sentients/JOANA.jpg";
+        Joana.Bio = "Joana is a writer, editor and proofreader specializing in short creative writing pieces about the eerie, uncanny and absurdist perspectives within the mind, pinning them with unconscious symbolism, with the goal of introspection upon the self in society and society in the self.";
+        SentientList.Add(Joana);
+
+        Sentient Dan = new();
+        Dan.Name = "Dan";
+        Dan.Picture = "assets/img/sentients/DAN.jpg";
+        Dan.Bio = "Cyberu is a multidisciplinary artist and art director bringing a transhumanist insight to design, blurring the lines between technologies such as multimedia, installations and photography, and exploring the edges and blends of the realms of digital arts, 3D and CGI.";
+        SentientList.Add(Dan);
+
+        Sentient Mar = new();
+        Mar.Name = "Mar";
+        Mar.Picture = "assets/img/sentients/MAR.jpg";
+        Mar.Bio = "Mar did their masters in neuroscience, currently working in drug-checking, self-organized harm reduction and queercare. They explore the merge of dreams, sci-fi, ambien, dysphoria/euphoria and non-human entities through illustration and handpoke tattoos.";
+        SentientList.Add(Mar);
+
+        Sentient Varela = new();
+        Varela.Name = "Varela";
+        Varela.Picture = "assets/img/sentients/VARELA.jpg";
+        SentientList.Add(Varela);
+
+        SentientList = SentientList.OrderBy(a => Guid.NewGuid()).ToList();
+    }
+
+    public void OpenArtistDialog(Sentient sentient)
+    {
+        var options = new DialogOptions { NoHeader = true };
+        var parameters = new DialogParameters { ["Sentient"] = sentient };
+        DialogService.Show<DialogSentient>("", parameters, options);
+    }
+}

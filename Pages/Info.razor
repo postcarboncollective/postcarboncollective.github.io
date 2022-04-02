@@ -1,0 +1,63 @@
+﻿@page "/Info"
+
+<MudGrid Spacing="0">
+    <MudItem lg="4" xs="12">
+        <MudCard Style="margin: 1vh">
+            <MudCardContent>
+                <MudContainer Style="min-height: 91vh">
+                    <center>
+                        <img src="assets/img/PostcarbonLogoWhite.png" style="width: 100%; max-width:500px" />
+                        <MudText>
+                            Postcarbon Collective is a multi-disciplinary collective of minds.
+                        </MudText>
+                        <br />
+                        <MudText>
+                            We are bound by an aspiration to be freed from the tethers of arbitrary morality and the shackles of imposed biology.
+                        </MudText>
+                        <MudText>
+                            To escape from all which weighs down the mind in the pursuit of its final, most heightened, state.
+                        </MudText>
+                        <br />
+                        <MudText>
+                            Unified by the concept of consciously experiencing reality unfettered by imposed biological limitations, we exist to represent the beauty and friction of human merged with machine.
+                        </MudText>
+                        <br />
+                        <MudText>
+                            Postcarbon invites you to embrace transhumanist doctrine and accept AI as an extension of self.
+                        </MudText>
+                        <MudText>
+                            To capitulate the pride of evolution in pursuit of the singularity.
+                        </MudText>
+                        <br />
+                        <MudText>
+                            We welcome you into Gilgamesh. We welcome you to join the pursuit.
+                        </MudText>
+                    </center>
+                </MudContainer>
+            </MudCardContent>
+            <MudCardActions>
+                <MudText Typo="Typo.caption">
+                    contact: <MudLink Typo="Typo.caption">postcarboncollective@gmail.com</MudLink>
+                </MudText>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem lg="8" xs="12">
+        <MudCard Style="margin: 1vh">
+            <MudCardContent>
+                <MudContainer>
+                    <iframe style="width:100%; height:94vh;" src="https://www.youtube.com/embed/beIzU9mCTUg"></iframe>
+                </MudContainer>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [CascadingParameter] MainLayout MainLayout { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MainLayout.SetIsIndex(false);
+    }
+}

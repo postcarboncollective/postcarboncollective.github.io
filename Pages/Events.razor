@@ -1,0 +1,99 @@
+﻿@page "/Events"
+@inject IDialogService DialogService;
+
+
+<MudButton Style="position:absolute; right:0;  z-index:10; height:5vh; justify-content: right; justify-items: right; justify-self: right;" OnClick="@OpenCodeOfConduct">Code of Conduct</MudButton>
+<MudTabs>
+    <MudTabPanel Text="Void">
+        <MudGrid Spacing="0">
+            <MudItem lg="3" xs="12">
+                <MudCard Style="margin: 1vh">
+                    <MudCardContent>
+                        <center>
+                            <MudText Typo="Typo.h4">Void</MudText>
+                            <img src="assets/img/VoidLogo.png" style="width: 100%; max-width:500px" />
+                            <MudText>A void function defines an algorithm which doesn't require a predefined return type.</MudText>
+                            <br />
+                            <MudText>Void events are an integration of live audiovisual performance within physical art presentations.</MudText>
+                            <br />
+                            <MudText>The theme is a shedding of the skin. The outer barrier which keeps us safe, comfortable, sanitized.</MudText>
+                            <br />
+                            <MudText>We are the input parameters, to be processed by the algorithm, and there is no predefined return.</MudText>
+                            <br />
+                        </center>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem lg="9" xs="12">
+                <MudCard Style="margin: 1vh">
+                    <MudCardContent>
+                        <MudTabs Centered="true">
+                            <MudTabPanel Text="Setup">
+                                <MudContainer Style="height: 84vh; max-height: 84vh; overflow-y: scroll">
+                                    <ImageGrid Count="40" Folder="@(@"/assets/img/voidsetup")" Extension="jpeg" />
+                                </MudContainer>
+                            </MudTabPanel>
+                        </MudTabs>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudTabPanel>
+    <MudTabPanel Text="Algorave">
+        <MudGrid Spacing="0">
+            <MudItem lg="3" xs="12">
+                <MudCard Style="margin: 1vh">
+                    <MudCardContent>
+                        <center>
+                            <MudText Typo="Typo.h4">Algorave</MudText>
+                            <img src="assets/img/AlgoraveLogo.png" style="width: 100%; max-width:500px" />
+                            <MudText>Postcarbon promotes algorave type events in accordance with the <MudLink Href="https://github.com/Algorave/guidelines/blob/master/README_en.md" Target="_blank">Algorave Guidelines</MudLink></MudText>
+                            <br />
+                            <MudText>
+                                Algorave involves performances\acts that use code-based and algorithmic generation of music and visuals, in a way that makes the code or algorithmic process visible.
+                            </MudText>
+                            <br />
+                            <MudText>
+                                Algorave is a free culture and diverse community space to lift each other up and exhibit different and creative approaches to music and raving.
+                            </MudText>
+                            <br />
+                            <MudText>More info at: <MudLink Href="https://algorave.com/" Target="_blank">algorave.com</MudLink></MudText>
+                        </center>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem lg="9" xs="12">
+                <MudCard Style="margin: 1vh">
+                    <MudCardContent>
+                        <MudTabs Centered="true">
+                            <MudTabPanel Text="Algorave">
+                                <MudContainer Style="height: 84vh; max-height: 84vh; overflow-y: scroll">
+                                    <center>
+                                        <br />
+                                        <img src="assets/img/AlgoraveLogo.png" style="width: 100%; max-width:500px" />
+                                        <MudText Typo="Typo.h5">Coming Soon...</MudText>
+                                    </center>
+                                </MudContainer>
+                            </MudTabPanel>
+                        </MudTabs>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudTabPanel>
+</MudTabs>
+
+@code {
+    [CascadingParameter] MainLayout MainLayout { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MainLayout.SetIsIndex(false);
+    }
+
+    public void OpenCodeOfConduct()
+    {
+        var options = new DialogOptions { NoHeader = true };
+        DialogService.Show<DialogCodeOfConduct>("", options);
+    }
+}
