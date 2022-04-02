@@ -5,13 +5,15 @@
                 <center>
                     <MudText Typo="Typo.h6">@Sentient.Name</MudText>
                 </center>
+                <br />
                 <center>
-                    <img src="@Sentient.Picture" style="width: 30vw; height: 20vw;">
+                    <img src="@Sentient.Picture" style="width: 50%;">
                 </center>
+                <br />
                 <center>
                     <MudText>@Sentient.Bio</MudText>
                 </center>
-                <br/>
+                <br />
                 @foreach (string link in Sentient.Links)
                 {
                     <center>
