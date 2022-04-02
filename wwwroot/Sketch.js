@@ -1,16 +1,16 @@
 ﻿let P5;
-DotNet = null;
-SetDotnetReference = function (pDotNetReference) {
-    DotNet = pDotNetReference;
-};
+//DotNet = null;
+//SetDotnetReference = function (pDotNetReference) {
+//    DotNet = pDotNetReference;
+//};
 
-DisposeJs = function () {
-    if (P5 != null) P5.remove();
-}
+//DisposeJs = function () {
+//    if (P5 != null) P5.remove();
+//}
 
-NavigateTo = function (_page) {
-    DotNet.invokeMethodAsync('NavigateTo', _page);
-}
+//NavigateTo = function (_page) {
+//    DotNet.invokeMethodAsync('NavigateTo', _page);
+//}
 
 
 window.setp5 = () => {
@@ -191,9 +191,18 @@ let sketch = function (p) {
                 if (p.mouseX > (nPos[n][0][nPos[n][0].length - 1]) - (cWidth) && p.mouseX < ((nPos[n][0][nPos[n][0].length - 1]) + (cWidth))) {
                     if (p.mouseY > (nPos[n][1][nPos[n][1].length - 1]) - (cHeight) && p.mouseY < (nPos[n][1][nPos[n][1].length - 1]) + (cHeight)) {
                         if (p.mouseIsPressed) {
-                            if (n == 0) { NavigateTo("Events"); }
-                            if (n == 1) { NavigateTo("Info"); }
-                            if (n == 3) { NavigateTo("Sentients")}
+                            if (n == 0) {
+                                window.location.href = 'https://postcarboncollective.github.io/Events';
+                                //NavigateTo("Events");
+                            }
+                            if (n == 1) {
+                                window.location.href = 'https://postcarboncollective.github.io/Info';
+                                //NavigateTo("Info");
+                            }
+                            if (n == 3) {
+                                window.location.href = 'https://postcarboncollective.github.io/Sentients';
+                                //NavigateTo("Sentients")
+                            }
                             //if (n == 4) { NavigateTo("Gallery"); }
                         }
                         hoover = true;
