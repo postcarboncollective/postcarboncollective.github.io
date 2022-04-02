@@ -26,11 +26,11 @@
     public bool IsOpen { get; set; } = false;
     public bool IsIndex { get; set; } = true;
 
-    //protected override async Task OnInitializedAsync()
-    //{
-        //var dotNet = DotNetObjectReference.Create(this);
-        //await JSRuntime.InvokeVoidAsync("SetDotnetReference", dotNet);
-    //}
+    protected override async Task OnInitializedAsync()
+    {
+        var dotNet = DotNetObjectReference.Create(this);
+        await JSRuntime.InvokeVoidAsync("SetDotnetReference", dotNet);
+    }
 
     public void ToggleDrawer()
     {

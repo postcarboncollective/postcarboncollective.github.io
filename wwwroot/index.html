@@ -26,22 +26,21 @@
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script>
         let P5;
-        //DotNet = null;
-        //SetDotnetReference = function (pDotNetReference) {
-        //    DotNet = pDotNetReference;
-        //};
+        DotNet = null;
+        SetDotnetReference = function (pDotNetReference) {
+            DotNet = pDotNetReference;
+        };
 
-        //DisposeJs = function () {
-        //    if (P5 != null) P5.remove();
-        //}
+        DisposeJs = function () {
+            if (P5 != null) P5.remove();
+        }
 
-        //NavigateTo = function (_page) {
-        //    DotNet.invokeMethodAsync('NavigateTo', _page);
-        //}
+        NavigateTo = function (_page) {
+            DotNet.invokeMethodAsync('NavigateTo', _page);
+        }
 
         window.setp5 = () => {
             P5 = new p5(sketch, window.document.getElementById('sketch-div'));
-            //return true;
         };
 
         let sketch = function (p) {
