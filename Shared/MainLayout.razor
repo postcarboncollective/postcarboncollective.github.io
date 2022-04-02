@@ -29,7 +29,7 @@
     protected override async Task OnInitializedAsync()
     {
         var dotNet = DotNetObjectReference.Create(this);
-        await JSRuntime.InvokeVoidAsync("GLOBAL.SetDotnetReference", dotNet);
+        await JSRuntime.InvokeVoidAsync("SetDotnetReference", dotNet);
     }
 
     public void ToggleDrawer()

@@ -1,8 +1,7 @@
 ﻿let P5;
-var GLOBAL = {};
-GLOBAL.DotNetReference = null;
-GLOBAL.SetDotnetReference = function (pDotNetReference) {
-    GLOBAL.DotNetReference = pDotNetReference;
+DotNet = null;
+SetDotnetReference = function (pDotNetReference) {
+    DotNet = pDotNetReference;
 };
 
 DisposeJs = function () {
@@ -10,7 +9,7 @@ DisposeJs = function () {
 }
 
 NavigateTo = function (_page) {
-    GLOBAL.DotNetReference.invokeMethodAsync('NavigateTo', _page);
+    DotNet.invokeMethodAsync('NavigateTo', _page);
 }
 
 
