@@ -12,10 +12,9 @@
 //    DotNet.invokeMethodAsync('NavigateTo', _page);
 //}
 
-
 window.setp5 = () => {
     P5 = new p5(sketch, window.document.getElementById('sketch-div'));
-    return true;
+    //return true;
 };
 
 let sketch = function (p) {
