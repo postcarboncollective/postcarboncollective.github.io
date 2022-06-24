@@ -1,18 +1,14 @@
 ﻿<MudDialog>
     <DialogContent>
         <MudGrid>
-            <MudItem xs="12">
-                <center>
-                    <MudText Typo="Typo.h6">@Sentient.Name</MudText>
-                </center>
+            <MudItem xs="4">
+                <img src="@Sentient.Id" style="width: 100%;">
+            </MudItem>
+            <MudItem xs="8">
                 <br />
-                <center>
-                    <img src="@Sentient.Picture" style="width: 50%;">
-                </center>
+                <MudText Typo="Typo.h4" Align="Align.Center">@Sentient.Name</MudText>
                 <br />
-                <center>
-                    <MudText>@Sentient.Bio</MudText>
-                </center>
+                <MudText Typo="Typo.body1" Align="Align.Center">@Sentient.Bio</MudText>
                 <br />
                 @foreach (string link in Sentient.Links)
                 {
