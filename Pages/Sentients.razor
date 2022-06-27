@@ -89,7 +89,7 @@
     public void OpenArtistDialog(Sentient sentient)
     {
         var options = new DialogOptions { NoHeader = true, MaxWidth = MaxWidth.Large };
-    var parameters = new DialogParameters { ["Sentient"] = sentient };
+        var parameters = new DialogParameters { ["Sentient"] = sentient };
         DialogService.Show<DialogSentient>(sentient.Name, parameters, options);
     }
 }
