@@ -2,36 +2,16 @@
 @inject IJSRuntime Js
 
 <MudPaper Style="width: 100%; height:100vh; padding: 0; margin: 0">
-    <div id="unity-container" class="unity-desktop" style="position: relative; width: 100%; height:100%; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0">
-        <canvas id="unity-canvas" style="height: 100%; width: 100%"></canvas>
-        <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-                <div id="unity-progress-bar-full"></div>
-            </div>
-        </div>
-        <div id="unity-warning"></div>
-    </div>
+    <br/>
+    <iframe style="width:100%; height:94vh;" src="@(@"https://i.simmer.io/@postcarbon/postcarbon-virtual-gallery")"></iframe>
 </MudPaper>
 
 @code {
-    [CascadingParameter] MainLayout MainLayout { get; set; }
-    private DotNetObjectReference<Gallery> pageRef { get; set; }
-    private bool PageLoaded { get; set; } = false;
-
+    [CascadingParameter]
+    MainLayout MainLayout { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
         MainLayout.SetIsIndex(false);
     }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            PageLoaded = false;
-            pageRef = DotNetObjectReference.Create(this);
-            PageLoaded = await Js.InvokeAsync<bool>("LoadUnity", pageRef);
-        }
-    }
-
 }
