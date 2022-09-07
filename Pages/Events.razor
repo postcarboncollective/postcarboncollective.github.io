@@ -11,15 +11,15 @@
                     <MudCardContent>
                         <center>
                             <MudText Typo="Typo.h4">Void</MudText>
-                            <img src="assets/img/VoidLogo.png" style="width: 100%; max-width:500px" />
+                            <img src="assets/img/VoidLogo.png" style="width: 100%; max-width:500px"/>
                             <MudText>A void function defines an algorithm which doesn't require a predefined return type.</MudText>
-                            <br />
+                            <br/>
                             <MudText>Void events are an integration of live audiovisual performance within physical art presentations.</MudText>
-                            <br />
+                            <br/>
                             <MudText>The theme is a shedding of the skin. The outer barrier which keeps us safe, comfortable, sanitized.</MudText>
-                            <br />
+                            <br/>
                             <MudText>We are the input parameters, to be processed by the algorithm, and there is no predefined return.</MudText>
-                            <br />
+                            <br/>
                         </center>
                     </MudCardContent>
                 </MudCard>
@@ -30,7 +30,7 @@
                         <MudTabs Centered="true">
                             <MudTabPanel Text="Setup">
                                 <MudContainer Style="height: 84vh; max-height: 84vh; overflow-y: scroll">
-                                    <ImageGrid Count="40" Folder="@(@"/assets/img/voidsetup")" Extension="jpeg" />
+                                    <ImageGrid Count="40" Folder="@(@"/assets/img/voidsetup")" Extension="jpeg"/>
                                 </MudContainer>
                             </MudTabPanel>
                         </MudTabs>
@@ -46,20 +46,21 @@
                     <MudCardContent>
                         <center>
                             <MudText Typo="Typo.h4">f(algorave)</MudText>
-                            <img src="assets/img/AlgoraveLogo.png" style="width: 100%; max-width:500px" />
+                            <br/>
+                            <img src="assets/img/f(algorave)Poster.jpeg" style="width: 100%; max-width:500px"/>
                             <MudText>
                                 f(algorave) events are physical algorave events curated and produced by PostCarbon Collective.
                                 These events are designed in accordance with the <MudLink Href="https://github.com/Algorave/guidelines/blob/master/README_en.md" Target="_blank">Algorave Guidelines</MudLink>.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 An f(algorave) involves performances\acts that use code-based and algorithmic generation of music and visuals, in a way that makes the code or algorithmic process visible to the atendees.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 Algorave is free culture and diverse community space used to lift each other up and exhibit different and creative approaches to music and raving.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>More info at: <MudLink Href="https://algorave.com/" Target="_blank">algorave.com</MudLink></MudText>
                         </center>
                     </MudCardContent>
@@ -69,13 +70,9 @@
                 <MudCard Style="margin: 1vh">
                     <MudCardContent>
                         <MudTabs Centered="true">
-                            <MudTabPanel Text="1.0">
+                            <MudTabPanel Text="First">
                                 <MudContainer Style="height: 84vh; max-height: 84vh; overflow-y: scroll">
-                                    <center>
-                                        <br />
-                                        <img src="assets/img/AlgoraveLogo.png" style="width: 100%; max-width:500px" />
-                                        <MudText Typo="Typo.h5">Coming Soon</MudText>
-                                    </center>
+                                    <ImageGrid Count="36" Folder="@(@"/assets/img/f(algorave)")" Extension="jpeg"/>
                                 </MudContainer>
                             </MudTabPanel>
                         </MudTabs>
@@ -91,41 +88,41 @@
                     <MudCardContent>
                         <center>
                             <MudText Typo="Typo.h4">Code Of Conduct</MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 All participants of PostCarbon events and community, including attendees, performers and organizers are required to agree with the following code of conduct.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 Please support it and help ensure a safe environment for everybody.
                             </MudText>
-                            <br />
-                            <br />
+                            <br/>
+                            <br/>
                             <MudText Typo="Typo.h4">Inclusion</MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 This is a safe space for everyone, irregardless of gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity and religion (or lack thereof).
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 Harassment includes offensive verbal comments related to gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity and religion, as well as deliberate intimidation, stalking, following, disruption of performances, inappropriate physical contact and unwelcome sexual attention.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 Consent is affirmative, conscious, voluntary, sober and revokable. Under no circumstances will we tolerate harassment in this space.
                             </MudText>
-                            <br />
-                            <br />
+                            <br/>
+                            <br/>
                             <MudText Typo="Typo.h4">Guidelines</MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 If you are being harassed, notice that someone else is being harassed or have any other concerns, please reach out to us – we will be in the postcorner.
                             </MudText>
-                            <br />
+                            <br/>
                             <MudText>
                                 PostCarbon organizers will also be available for issues regarding security or police.
                             </MudText>
-                            <br />
+                            <br/>
                         </center>
                     </MudCardContent>
                 </MudCard>
@@ -135,7 +132,8 @@
 </MudTabs>
 
 @code {
-    [CascadingParameter] MainLayout MainLayout { get; set; }
+    [CascadingParameter]
+    MainLayout MainLayout { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
