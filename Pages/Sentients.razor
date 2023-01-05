@@ -4,11 +4,11 @@
 <MudGrid Spacing="0">
     @foreach (Sentient sent in SentientList)
     {
-        <MudItem lg="3" xs="6">
+        <MudItem lg="4" md="6" xs="12">
             <MudCard Style="margin: 1vh;">
                 <MudCardContent>
                     <center>
-                        <img src="@sent.Picture" @onclick="@(()=>OpenArtistDialog(sent))" style="width: 100%;" />
+                        <img src="@sent.Picture" @onclick="@(() => OpenArtistDialog(sent))" style="height:45vh;"/>
                     </center>
                 </MudCardContent>
             </MudCard>
@@ -17,7 +17,8 @@
 </MudGrid>
 
 @code {
-    [CascadingParameter] MainLayout MainLayout { get; set; }
+    [CascadingParameter]
+    MainLayout MainLayout { get; set; }
     List<Sentient> SentientList { get; set; } = new();
 
     protected override void OnInitialized()
@@ -39,13 +40,6 @@
         PostBot.Bio = "POST_B0T is a digital identity, a software installed in a larger artistic entity. With the inputs of futurism, trans-humanism, fantasy, biology and psychology, this ever-changeable program outputs visions of an apocalyptic future where nature and machine have found an ethereal balance.";
         SentientList.Add(PostBot);
 
-        Sentient SputNik = new();
-        SputNik.Name = "SputNik";
-        SputNik.Id = "assets/img/sentients/ID_Sara.png";
-        SputNik.Picture = "assets/img/sentients/SARA.jpg";
-        SputNik.Bio = "Sputnik is an artist with an immense need for creation. Using visual and physical mediums like illustration, painting, installations and more recently, 3D art, VJ and videomapping in an exploration of the dogmas of transhumanism; their moral and ethical consequences.";
-        SentientList.Add(SputNik);
-
         Sentient Sasha = new();
         Sasha.Name = "Sasha Theft";
         Sasha.Id = "assets/img/sentients/ID_Sasha.png";
@@ -62,14 +56,6 @@
         Joana.Bio = "Joana is a writer, editor and proofreader specializing in short creative writing pieces about the eerie, uncanny and absurdist perspectives within the mind, pinning them with unconscious symbolism, with the goal of introspection upon the self in society and society in the self.";
         SentientList.Add(Joana);
 
-        Sentient Cyberu = new();
-        Cyberu.Name = "Cyberu";
-        Cyberu.Id = "assets/img/sentients/ID_Dan.png";
-        Cyberu.Picture = "assets/img/sentients/DAN.jpg";
-        Cyberu.Bio = "Cyrberu is a multidisciplinary artist and art director bringing a transhumanist insight to design, blurring the lines between technologies such as multimedia, installations and photography, while exploring the edges and blends of the realms of digital arts, 3D and CGI.";
-        Cyberu.Links.Add("https://cyrberu.com");
-        SentientList.Add(Cyberu);
-
         Sentient Mar = new();
         Mar.Name = "Mar";
         Mar.Id = "assets/img/sentients/ID_Mar.png";
@@ -84,13 +70,29 @@
         Varela.Bio = "Varela graduated in events programming and cultural production, dedicated to the areas of cultural programming, curatorship, management and artistic production. He currently works in a gallery producing music shows of relevant and up-and-coming artists in the local scene.";
         SentientList.Add(Varela);
 
+        // Sentient SputNik = new();
+        // SputNik.Name = "SputNik";
+        // SputNik.Id = "assets/img/sentients/ID_Sara.png";
+        // SputNik.Picture = "assets/img/sentients/SARA.jpg";
+        // SputNik.Bio = "Sputnik is an artist with an immense need for creation. Using visual and physical mediums like illustration, painting, installations and more recently, 3D art, VJ and videomapping in an exploration of the dogmas of transhumanism; their moral and ethical consequences.";
+        // SentientList.Add(SputNik);
+
+        // Sentient Cyberu = new();
+        // Cyberu.Name = "Cyberu";
+        // Cyberu.Id = "assets/img/sentients/ID_Dan.png";
+        // Cyberu.Picture = "assets/img/sentients/DAN.jpg";
+        // Cyberu.Bio = "Cyrberu is a multidisciplinary artist and art director bringing a transhumanist insight to design, blurring the lines between technologies such as multimedia, installations and photography, while exploring the edges and blends of the realms of digital arts, 3D and CGI.";
+        // Cyberu.Links.Add("https://cyrberu.com");
+        // SentientList.Add(Cyberu);
+
         SentientList = SentientList.OrderBy(a => Guid.NewGuid()).ToList();
     }
 
     public void OpenArtistDialog(Sentient sentient)
     {
-        var options = new DialogOptions { NoHeader = true, MaxWidth = MaxWidth.Large };
-        var parameters = new DialogParameters { ["Sentient"] = sentient };
+        var options = new DialogOptions {NoHeader = true, MaxWidth = MaxWidth.Large};
+        var parameters = new DialogParameters {["Sentient"] = sentient};
         DialogService.Show<DialogSentient>(sentient.Name, parameters, options);
     }
+
 }

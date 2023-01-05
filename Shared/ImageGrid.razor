@@ -6,21 +6,27 @@
     {
         <div class="responsive">
             <div class="gallery">
-                <img src="@($"{Folder}/{i}.{Extension}")" onclick="@(()=>ShowImage($"{Folder}/{i}.{Extension}"))">
+                <img src="@($"{Folder}/{i}.{Extension}")" onclick="@(() => ShowImage($"{Folder}/{i}.{Extension}"))">
             </div>
         </div>
     }
 </div>
 
 @code {
-    [Parameter] public int Count { get; set; } = 40;
-    [Parameter] public string Folder { get; set; } = "";
-    [Parameter] public string Extension { get; set; } = "jpeg";
+    [Parameter]
+    public int Count { get; set; } = 40;
+    [Parameter]
+    public string Folder { get; set; } = "";
+    [Parameter]
+    public string Extension { get; set; } = "jpeg";
 
     public void ShowImage(string Url)
     {
-        var options = new DialogOptions { NoHeader = true };
-        var parameters = new DialogParameters { ["Url"] = Url };
-        DialogService.Show<DialogImage>("Image", parameters, options);}
+        var options = new DialogOptions {NoHeader = true};
+        var parameters = new DialogParameters {["Url"] = Url};
+        DialogService.Show<DialogImage>("Image", parameters, options);
     }
+
+}
+
 }
