@@ -131,12 +131,12 @@
                 nPos[3][0][2] = p.width / 1.225;
                 nPos[3][1][2] = p.height / 1.7;
 
-                //nPos[4][0][0] = p.width / 1.46;
-                //nPos[4][1][0] = p.height / 2.275;
-                //nPos[4][0][1] = p.width / 1.29;
-                //nPos[4][1][1] = p.height / 2.275;
-                //nPos[4][0][2] = p.width / 1.18;
-                //nPos[4][1][2] = p.height / 2.75;
+                nPos[4][0][0] = p.width / 1.46;
+                nPos[4][1][0] = p.height / 2.275;
+                nPos[4][0][1] = p.width / 1.29;
+                nPos[4][1][1] = p.height / 2.275;
+                nPos[4][0][2] = p.width / 1.18;
+                nPos[4][1][2] = p.height / 2.75;
 
                 //nPos[5][0][0] = p.width / 1.708;
                 //nPos[5][1][0] = p.height / 2;
@@ -172,9 +172,10 @@
                     p.ellipse(nPos[3][0][0], nPos[3][1][0], cWidth, cHeight);
                     p.line(nPos[3][0][0], nPos[3][1][0], nPos[3][0][1], nPos[3][1][1]);
                     p.line(nPos[3][0][1], nPos[3][1][1], nPos[3][0][2], nPos[3][1][2]);
-                    p.ellipse(nPos[4][0][0], nPos[4][1][0], cWidth, cHeight);
-                    p.line(nPos[4][0][0], nPos[4][1][0], nPos[4][0][1], nPos[4][1][1]);
-                    p.line(nPos[4][0][1], nPos[4][1][1], nPos[4][0][2], nPos[4][1][2]);
+                    
+                    // p.ellipse(nPos[4][0][0], nPos[4][1][0], cWidth, cHeight);
+                    // p.line(nPos[4][0][0], nPos[4][1][0], nPos[4][0][1], nPos[4][1][1]);
+                    // p.line(nPos[4][0][1], nPos[4][1][1], nPos[4][0][2], nPos[4][1][2]);
 
                     p.ellipse(nPos[5][0][0], nPos[5][1][0], cWidth, cHeight);
                     p.line(nPos[5][0][0], nPos[5][1][0], nPos[5][0][1], nPos[5][1][1]);
@@ -186,7 +187,7 @@
                     p.ellipse(nPos[1][0][2], nPos[1][1][2], cWidth, cHeight);
                     //p.ellipse(nPos[2][0][2], nPos[2][1][2], cWidth, cHeight);
                     p.ellipse(nPos[3][0][2], nPos[3][1][2], cWidth, cHeight);
-                    p.ellipse(nPos[4][0][2], nPos[4][1][2], cWidth, cHeight);
+                    // p.ellipse(nPos[4][0][2], nPos[4][1][2], cWidth, cHeight);
                     p.ellipse(nPos[5][0][3], nPos[5][1][3], cWidth, cHeight);
 
                     p.fill(255);
@@ -198,7 +199,7 @@
                     //p.text('Projects', nPos[2][0][2] - (p.width / sizeDiv), nPos[2][1][2]);
                     p.textAlign(p.LEFT, p.CENTER);
                     p.text('Sentients', nPos[3][0][2] + (p.width / sizeDiv), nPos[3][1][2]);
-                    //p.text('Gallery', nPos[4][0][2] + (p.width / sizeDiv), nPos[4][1][2]);
+                    // p.text('Gallery', nPos[4][0][2] + (p.width / sizeDiv), nPos[4][1][2]);
                     //p.text('Label', nPos[5][0][3] + (p.width / sizeDiv), nPos[5][1][3]);
 
                     hoover = false;
@@ -219,7 +220,7 @@
                                     if (n == 0) { NavigateTo("Events"); }
                                     if (n == 1) { NavigateTo("Info"); }
                                     if (n == 3) { NavigateTo("Sentients"); }
-                                    //if (n == 4) { NavigateTo("Gallery"); }
+                                    // if (n == 4) { NavigateTo("Gallery"); }
                                 }
                                 hoover = true;
                                 p.fill(255);
